@@ -2,40 +2,41 @@
 
 OS X Auditor is a free Mac OS X computer forensics tool.
 
-OS X Auditor parses and hashes the following artifacts on the running system or a copy of a system you want to analyze:
- * the kernel extensions
- * the system agents and daemons
- * the third party's agents and daemons
- * the old and deprecated system and third party's startup items
- * the users' agents
- * the users' downloaded files
- * the installed applications
+OS X Auditor parses and hashes the following artifacts on the running system (or a copy of a system) you want to analyze:
+ * Kernel extensions
+ * System agents and daemons
+ * Third party agents and daemons
+ * Old and deprecated system and third party startup items
+ * Users' agents
+ * Users' downloaded files
+ * Installed applications
 
-It extracts:
- * the users' quarantined files
- * the users' Safari history, downloads, topsites, LastSession, HTML5 databases and localstore
- * the users' Firefox cookies, downloads, formhistory, permissions, places and signons
- * the users' Chrome history and archives history, cookies, login data, top sites, web data, HTML5 databases and local storage
- * the users' social and email accounts
- * the WiFi access points the audited system has been connected to (and tries to geolocate them)
+It extracts the users':
+ * Quarantined files
+ * Safari history, downloads, topsites, LastSession, HTML5 databases and localstore
+ * Firefox cookies, downloads, formhistory, permissions, places and signons
+ * Chrome history and archives history, cookies, login data, top sites, web data, HTML5 databases and local storage
+ * Social and email accounts
 
-It also looks for suspicious keywords in the .plist themselves.
+In addition, OS X Auditor extracts the WiFi access points the audited system has been connected to and tries to geolocate them.
+
+It also looks for suspicious keywords in the .plist files themselves.
 
 It can verify the reputation of each file on:
  * Team Cymru's MHR
  * VirusTotal
  * Malware.lu
- * your own local database
+ * Your own local database
 
 It can aggregate all logs from the following directories into a zipball:
  * /var/log (-> /private/var/log)
  * /Library/logs
- * the user's ~/Library/logs
+ * The user's ~/Library/logs
 
 Finally, the results can be:
- * rendered as a simple txt log file (so you can cat-pipe-grep in them… or just grep)
- * rendered as a HTML log file
- * sent to a Syslog server
+ * Rendered as a simple txt log file (so you can cat-pipe-grep in them… or just grep)
+ * Rendered as a HTML log file
+ * Sent to a Syslog server
 
 ## Author
 
@@ -47,20 +48,20 @@ Just copy all files from github
 
 ## Dependencies
 
-If you plan to run OS X Auditor on a Mac, you will get a full plist parsing support with the OS X Foundation through pyobjc:
+If you plan to run OS X Auditor on a Mac, you will get full plist parsing support through the OS X Foundation with pyobjc:
  * pip install pyobjc
 
 If you can't install pyobjc or if you plan to run OS X Auditor on another OS than Mac OS X, you may experience some troubles with the plist parsing:
  * pip install biplist
  * pip install plist
 
-These dependencies will be removed when a working native plist module will be available in python
+These dependencies will be removed when a working native plist module is available in python
 
 ## How to run
 
  * OS X Auditor runs well with python >= 2.7.2 (2.7.5 is OK). It does not run with a different version of python yet (due to the plist nightmare)
- * OS X Auditor is written to work on Moutain Lion. It will do his best on older OS X versions.
- * You must run it as root (or via sudo) if you want to use is on a running system, otherwise it won't be able to access some system and other users' files
+ * OS X Auditor is written to work on Moutain Lion. It will do its best on older OS X versions.
+ * You must run it as root (or via sudo) if you want to use it on a running system, otherwise it won't be able to access some system and other users' files
 
 Type osxauditor.py -h to get all the available options, then run it with the selected options
 
